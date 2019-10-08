@@ -1,23 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import React from 'react';
+
 const App: React.FC = () => {
+  const authLink = "https://github.com/login/oauth/authorize?client_id=ba97c6160162014cccdc&scope=user%20repo";
+  const urlParams = new URLSearchParams(window.location.search);
+  const secret = urlParams.get('code');
+  //TODO: need to save it into Context or any another place but NOT into the localstorage
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {secret ? (
+          <p> Yor Github secret is {secret}</p>
+        ) :
+          (
+            <p>You have no Github sАecret. Click <a href={authLink}>Authorize</a> to get one</p>
+          )
+        }
       </header>
     </div>
   );
