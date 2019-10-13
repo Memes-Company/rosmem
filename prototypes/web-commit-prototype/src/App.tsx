@@ -52,7 +52,6 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <button type="button" className="nes-btn is-primary" onClick={() => console.log(store)}>Print store</button>
         <button type="button" className="nes-btn is-primary" onClick={handlers.authorize}>Authorize {
           code && "✔️"
         }</button>
