@@ -20,6 +20,9 @@ export class GithubService {
       .then((response) => response.text())
       .then((s) => new URLSearchParams(s).get('access_token') || undefined);
   }
+  public static isAuthorized(): boolean {
+    return !!this.token;
+  }
   public static async createFork(sourceRepoOwner: string, sourceRepoName: string) {
     this.token = this.token;
     fetch(`${this.apiEndpoint}/repos/${sourceRepoOwner}/${sourceRepoName}/forks`, {

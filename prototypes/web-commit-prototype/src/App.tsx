@@ -3,8 +3,11 @@ import './App.css';
 import React from 'react';
 import { GithubService } from './github-service';
 
+const authLink = GithubService.getAuthLink();
+const handlers = {
+  authorize: () => window.location.href = authLink,
+}
 const App: React.FC = () => {
-  const authLink = GithubService.getAuthLink();
   const urlParams = new URLSearchParams(window.location.search);
   const code = urlParams.get('code');
   if (code) {
@@ -13,16 +16,10 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        {code ? (
-          <>
-            <p> Yor Github code is {code}</p>
-            <button onClick={() => GithubService.createFork('kosachemoto', 'test-readme-repo')}>Create a fork</button>
-          </>
-        ) :
-          (
-            <p>You have no Github code. Click <a href={authLink}>Authorize</a> to get one</p>
-          )
-        }
+        <button type="button" className="nes-btn is-primary" onClick={handlers.authorize}>Authorize {
+          code && "✔️"
+        }</button>
+        <button type="button" className="nes-btn is-primary" onClick={() => GithubService.createFork('kosachemoto', 'test-readme-repo')}>Create a fork</button>
       </header>
     </div>
   );
