@@ -1,10 +1,11 @@
 import React from 'react';
 import './body.container.css';
 
-export const BodyContainer = () => {
+export const Body = (props) => {
+  console.log('body\'s props:', props);
   return (
-    <>
-      <p>body</p>
-    </>
+    <div className={`body ${props.class}`}>
+      <span className="body-title">body</span>
+    </div>
   )
 }

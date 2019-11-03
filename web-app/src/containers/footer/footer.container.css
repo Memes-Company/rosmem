@@ -1,0 +1,10 @@
+.footer {
+  background-color: rgba(66, 66, 66, 0);
+  text-align: center;
+  padding: 40px 0;
+  height: 50vh;
+}
+
+.footer-content {
+  line-height: 20px;
+}

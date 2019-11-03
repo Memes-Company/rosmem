@@ -1,10 +1,10 @@
 import React from 'react';
 import './footer.container.css';
 
-export const FooterContainer = () => {
+export const Footer = React.forwardRef((props, ref) => {
   return (
-    <>
-      <p>footer</p>
-    </>
+    <div ref={ref} className="footer" style={{backgroundColor: "rgba(66, 66, 66, 0)"}}>
+      <span className="footer-content">Footer Content...</span>
+    </div>
   )
-}
+})
