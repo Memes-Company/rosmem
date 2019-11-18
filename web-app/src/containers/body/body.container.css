@@ -1,7 +1,7 @@
 .body {
   text-align: center;
   padding: 40px 0;
-  min-height: calc(100vh + calc(100vh - 200px));
+  min-height: calc(calc(100vh - 200px));
 }
 
 .body-title {

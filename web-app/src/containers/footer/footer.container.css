@@ -1,6 +1,8 @@
 .footer {
   background-color: rgba(66, 66, 66, 0);
   text-align: center;
+  padding: 0px 20px;
+  transition: color .2s ease-in-out;
 }
 
 .footer-content {
@@ -8,7 +10,8 @@
 }
 
 .footer__title {
-  padding: 40px 0;
+  padding: 35px 0;
+  line-height: 0;
 }
 
 .footer__body {
@@ -16,6 +19,24 @@
   min-height: 50vh;
 }
 
-.footer__text-light {
+.footer_text-dark {
+  color: black;
+}
+
+.footer_text-light {
   color: white;
+}
+
+.footer__logoname {
+  height: 30px;
+  width: 100%;
+  transition: fill .2s ease-in-out;
+}
+
+.footer__logoname_dark {
+  fill: black;
+}
+
+.footer__logoname_light {
+  fill: white;
 }

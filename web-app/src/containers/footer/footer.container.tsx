@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { BaseProps } from '../../types';
 import { fromEvent, pipe, of, from } from 'rxjs';
 import { map, tap, filter } from 'rxjs/operators';
+import {ReactComponent as Logoname} from '../../assets/svg/logoname.svg';
 import './footer.container.css';
 
 export const Footer = (props: BaseProps) => {
@@ -26,6 +27,9 @@ export const Footer = (props: BaseProps) => {
         // Convert to percentages of footer showing 
         map((scrollHeight: number) => {
           return scrollHeight / footerBodyElement.current!.clientHeight;
+        }),
+        tap((scrollPercentages: number) => {
+          setIsTestLight(scrollPercentages >= .8);
         })
       ).subscribe((scrollPercentages: number) => {
         footerElement.current!.style.backgroundColor = `rgba(${red}, ${green}, ${blue}, ${scrollPercentages})`;
@@ -39,11 +43,13 @@ export const Footer = (props: BaseProps) => {
       ref={footerElement}
       className={"footer" +
         (props.class ? " " + props.class : "") +
-        (isTestLight ? "footer__text-light" : "")}
+        (isTestLight ? " footer_text-light" : " footer_text-dark")}
       style={{ backgroundColor: "rgba(66, 66, 66, 0)" }}>
 
       <div className="footer__title">
-        <span className="footer-content">Footer Title</span>
+        <Logoname className={"footer__logoname" + 
+          (isTestLight ? " footer__logoname_light" : " footer__logoname_dark") }
+        />
       </div>
       <div ref={footerBodyElement} className="footer__body">
         <span className="footer-content">Footer Content...</span>
