@@ -1,0 +1,9 @@
+.body {
+  text-align: center;
+  padding: 40px 0;
+  min-height: calc(calc(100vh - 200px));
+}
+
+.body-title {
+  line-height: 20px;
+}
