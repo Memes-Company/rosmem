@@ -52,7 +52,7 @@ export const Footer = (props: BaseProps) => {
         />
       </div>
       <div ref={footerBodyElement} className="footer__body">
-        <span className="footer-content">Footer Content...</span>
+        <span className="footer-content">Footer Content</span>
       </div>
     </div>
   )

@@ -8,7 +8,7 @@
     "@types/node": "^12.12.5",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.3",
-    "react": "^16.11.0",
+    "react": "^16.11.0", 
     "react-dom": "^16.11.0",
     "react-scripts": "3.2.0",
     "rxjs": "^6.5.3",
@@ -19,7 +19,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build"
+    "deploy:dev": "yarn deploy:changebuildcname \"\" && yarn gh-pages -d build",
+    "deploy:prod": "yarn deploy:changebuildcname \"xn--e1anbfjh.xn--p1ai\" && yarn deploy:rf && yarn deploy:changebuildcname \"rosmem.com\" && yarn deploy:com",
+    "deploy:changebuildcname": "echo $1 > \"$(git rev-parse --show-toplevel)/web-app/build/CNAME\"", 
+    "deploy:rf": "gh-pages -b master -d build -r https://github.com/Memes-Company/rosmem-rf.git",
+    "deploy:com": "gh-pages -b master -d build -r https://github.com/Memes-Company/rosmem-com.git"
   },
   "eslintConfig": {
     "extends": "react-app"
