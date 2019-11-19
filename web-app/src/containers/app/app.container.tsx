@@ -1,12 +1,9 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { 
   Header, 
   Body, 
   Footer 
 } from '../../containers';
-import {
-  FooterTitle
-} from '../../components';
 import './app.container.css';
 
 export const App = () => {

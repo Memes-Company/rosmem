@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { BaseProps } from '../../types';
-import { fromEvent, pipe, of, from } from 'rxjs';
+import { fromEvent } from 'rxjs';
 import { map, tap, filter } from 'rxjs/operators';
 import {ReactComponent as Logoname} from '../../assets/svg/logoname.svg';
 import './footer.container.css';
@@ -12,7 +12,7 @@ export const Footer = (props: BaseProps) => {
   const footerBodyElement = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const matchRGB: RegExp = new RegExp(/.+\((\d+)\,\s(\d+)\,\s(\d+).+/);
+    const matchRGB: RegExp = new RegExp(/.+\((\d+),\s(\d+),\s(\d+).+/);
     const [, red, green, blue] = footerElement.current!.style.backgroundColor!.match(matchRGB)!;
 
     const subscription = fromEvent(document, 'scroll').pipe(
