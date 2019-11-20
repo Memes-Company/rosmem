@@ -11,7 +11,7 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - name: pwd
-        run: pwd
+        run: "pwd"
         working-directory: ./web-app
       - name: Install dependencies
         run: "yarn"
