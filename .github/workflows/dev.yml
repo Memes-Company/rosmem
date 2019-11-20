@@ -12,8 +12,11 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v1
+      - name: cd web-app
+        run: cd web-app
       - name: ls
         run: ls -la
+        
 #     - name: GitHub Pages Deploy
 #     - uses: maxheld83/ghpages@v0.2.1
       
