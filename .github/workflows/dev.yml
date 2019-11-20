@@ -10,12 +10,12 @@ jobs:
     name: "[DEV] Build and deploy to github pages"
     runs-on: [ubuntu-latest]
     steps:
-      - name: cd web-app
-        run: "cd web-app"
       - name: Install dependencies
         run: "yarn"
+        working-directory: ./web-app
       - name: "Build"
         run: "yarn build"
+        working-directory: ./web-app
 #     - name: GitHub Pages Deploy
 #     - uses: maxheld83/ghpages@v0.2.1
       
