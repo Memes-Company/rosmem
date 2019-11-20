@@ -11,14 +11,7 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - name: pwd
-        run: "pwd"
-        working-directory: ./web-app
-      - name: Install dependencies
-        run: "yarn"
-        working-directory: ./web-app
-      - name: "Build"
-        run: "yarn build"
-        working-directory: ./web-app
+        run: pwd
 #     - name: GitHub Pages Deploy
 #     - uses: maxheld83/ghpages@v0.2.1
       
