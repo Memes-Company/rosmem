@@ -1,0 +1,19 @@
+name: CI
+
+on:
+  push:
+    branches: 
+      - develop
+
+jobs:
+  build:
+    name: "[DEV] Build and deploy to github pages"
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Install dependencies
+        run: "yarn"
+      - name: "Build"
+        run: "yarn build"
+#     - name: GitHub Pages Deploy
+#     - uses: maxheld83/ghpages@v0.2.1
+      
