@@ -1,4 +1,4 @@
-name: CI
+name: "[DEV] Build and deploy to github pages"
 
 on:
   push:
@@ -16,6 +16,7 @@ jobs:
         run: cd web-app
       - name: ls
         run: ls -la
+        working-directory: web-app
         
 #     - name: GitHub Pages Deploy
 #     - uses: maxheld83/ghpages@v0.2.1
