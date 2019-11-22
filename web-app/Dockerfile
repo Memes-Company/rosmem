@@ -12,3 +12,4 @@ WORKDIR rosmem/web-app
 RUN yarn
 RUN yarn build
 RUN yarn deploy:dev
+RUN yarn deploy:prod
