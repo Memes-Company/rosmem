@@ -1,0 +1,14 @@
+name: "[develop] Build and publish to github-pages"
+
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --build-arg REPO_URL=${{ secrets.REPO_URL }} --tag rosmem
+        working-directory: web-app
