@@ -1,14 +1,14 @@
-name: "[develop] Build and publish to github-pages"
+name: "[master] Build and publish to PROD sites"
 
 on:
   push:
     branches:
-      - develop
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --build-arg TOKEN=${{ secrets.TOKEN }} --build-arg ENV=dev --tag rosmem
+        run: docker build . --file Dockerfile --build-arg TOKEN=${{ secrets.TOKEN }} --build-arg ENV=prod --tag rosmem
         working-directory: web-app
