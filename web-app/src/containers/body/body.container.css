@@ -1,7 +1,9 @@
 .body {
   text-align: center;
   padding: 40px 0;
-  min-height: calc(calc(100vh - 200px));
+  min-height: calc(100vh - 200px);
+  min-height: calc(var(--viewportVH, 1vh) * 100 - 200px);
+  transition: min-height .25s cubic-bezier(0.000, 0.000, 0.000, 1.000);
 }
 
 .body-title {
