@@ -1,0 +1,14 @@
+name: "[PROD] Build and publish to PROD sites"
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --build-arg TOKEN=${{ secrets.TOKEN }} --build-arg ENV=prod --tag rosmem
+        working-directory: web-app

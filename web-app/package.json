@@ -22,8 +22,8 @@
     "deploy:dev": "yarn deploy:changebuildcname \"\" && yarn gh-pages -d build",
     "deploy:prod": "yarn deploy:changebuildcname \"xn--e1anbfjh.xn--p1ai\" && yarn deploy:rf && yarn deploy:changebuildcname \"rosmem.com\" && yarn deploy:com",
     "deploy:changebuildcname": "echo $1 > \"$(git rev-parse --show-toplevel)/web-app/build/CNAME\"", 
-    "deploy:rf": "gh-pages -b master -d build -r https://github.com/Memes-Company/rosmem-rf.git",
-    "deploy:com": "gh-pages -b master -d build -r https://github.com/Memes-Company/rosmem-com.git"
+    "deploy:rf": "gh-pages -b master -d build -r https://$(echo $TOKEN)github.com/Memes-Company/rosmem-rf.git",
+    "deploy:com": "gh-pages -b master -d build -r https://$(echo $TOKEN)github.com/Memes-Company/rosmem-com.git"
   },
   "eslintConfig": {
     "extends": "react-app"
