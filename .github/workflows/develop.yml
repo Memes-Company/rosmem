@@ -10,5 +10,5 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --build-arg REPO_URL=${{ secrets.REPO_URL }} --tag rosmem
+        run: docker build . --file Dockerfile --build-arg TOKEN=${{ secrets.TOKEN }} --tag rosmem
         working-directory: web-app
