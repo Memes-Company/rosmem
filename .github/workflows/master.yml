@@ -1,4 +1,4 @@
-name: "[master] Build and publish to PROD sites"
+name: "[PROD] Build and publish to PROD sites"
 
 on:
   push:

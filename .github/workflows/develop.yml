@@ -1,4 +1,4 @@
-name: "[develop] Build and publish to github-pages"
+name: "[DEV] Build and publish to github-pages"
 
 on:
   push:
