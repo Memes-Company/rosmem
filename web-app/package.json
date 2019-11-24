@@ -3,17 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "homepage": ".",
-  "dependencies": {
-    "@types/jest": "^24.0.21",
-    "@types/node": "^12.12.5",
-    "@types/react": "^16.9.11",
-    "@types/react-dom": "^16.9.3",
-    "react": "^16.11.0", 
-    "react-dom": "^16.11.0",
-    "react-scripts": "3.2.0",
-    "rxjs": "^6.5.3",
-    "typescript": "^3.6.4"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -21,7 +10,7 @@
     "eject": "react-scripts eject",
     "deploy:dev": "yarn deploy:changebuildcname \"\" && yarn gh-pages -d build",
     "deploy:prod": "yarn deploy:changebuildcname \"xn--e1anbfjh.xn--p1ai\" && yarn deploy:rf && yarn deploy:changebuildcname \"rosmem.com\" && yarn deploy:com",
-    "deploy:changebuildcname": "echo $1 > \"$(git rev-parse --show-toplevel)/web-app/build/CNAME\"", 
+    "deploy:changebuildcname": "echo $1 > \"$(git rev-parse --show-toplevel)/web-app/build/CNAME\"",
     "deploy:rf": "gh-pages -b master -d build -r https://$(echo $TOKEN)github.com/Memes-Company/rosmem-rf.git",
     "deploy:com": "gh-pages -b master -d build -r https://$(echo $TOKEN)github.com/Memes-Company/rosmem-com.git"
   },
@@ -39,6 +28,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "@types/jest": "^24.0.21",
+    "@types/node": "^12.12.5",
+    "@types/react": "^16.9.11",
+    "@types/react-dom": "^16.9.3",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-scripts": "3.2.0",
+    "rxjs": "^6.5.3",
+    "typescript": "^3.6.4"
   },
   "devDependencies": {
     "gh-pages": "^2.1.1"
