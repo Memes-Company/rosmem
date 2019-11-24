@@ -8,7 +8,7 @@
     "@types/node": "^12.12.5",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.3",
-    "react": "^16.11.0", 
+    "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-scripts": "3.2.0",
     "rxjs": "^6.5.3",
@@ -21,9 +21,10 @@
     "eject": "react-scripts eject",
     "deploy:dev": "yarn deploy:changebuildcname \"\" && yarn gh-pages -d build",
     "deploy:prod": "yarn deploy:changebuildcname \"xn--e1anbfjh.xn--p1ai\" && yarn deploy:rf && yarn deploy:changebuildcname \"rosmem.com\" && yarn deploy:com",
-    "deploy:changebuildcname": "echo $1 > \"$(git rev-parse --show-toplevel)/web-app/build/CNAME\"", 
+    "deploy:changebuildcname": "echo $1 > \"$(git rev-parse --show-toplevel)/web-app/build/CNAME\"",
     "deploy:rf": "gh-pages -b master -d build -r https://$(echo $TOKEN)github.com/Memes-Company/rosmem-rf.git",
-    "deploy:com": "gh-pages -b master -d build -r https://$(echo $TOKEN)github.com/Memes-Company/rosmem-com.git"
+    "deploy:com": "gh-pages -b master -d build -r https://$(echo $TOKEN)github.com/Memes-Company/rosmem-com.git",
+    "serve-build": "yarn serve build/ --no-clipboard --no-compression --symlinks"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -41,6 +42,7 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^2.1.1"
+    "gh-pages": "^2.1.1",
+    "serve": "^11.2.0"
   }
 }
