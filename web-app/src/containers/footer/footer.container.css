@@ -12,9 +12,9 @@
 .footer__title {
   padding: 35px 0;
   line-height: 0;
-  min-height: calc(100vh - calc(100vh - 100px));
-  min-height: calc(100vh - calc(var(--viewportVH, 1vh) * 100 - 100px));
-  transition: min-height .25s cubic-bezier(0.000, 0.000, 0.000, 1.000);
+  min-height: 100px;
+  min-height: calc(100vh - var(--viewportVH, 1vh) * 100 + 100px);
+  transition: min-height .15s ease-out;
 }
 
 .footer__body {
