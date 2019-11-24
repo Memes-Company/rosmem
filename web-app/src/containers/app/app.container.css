@@ -1,8 +1,3 @@
 .app {
-  display: flex;
-  flex-direction: column;
-}
 
-.preview__body {
-  flex-grow: 1;
 }
