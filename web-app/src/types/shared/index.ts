@@ -1,1 +1,1 @@
-export * from "./base-props.interface";
+export * from './class-name.interface';

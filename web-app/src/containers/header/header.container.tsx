@@ -1,10 +1,10 @@
 import React from 'react';
-import { BaseProps } from '../../types';
+import { ClassName } from '../../types';
 import './header.container.css';
 
-export const Header = (props: BaseProps) => {
+export const Header: React.FC<ClassName<{}>> = ({className}) => {
   return (
-    <div className={"header" + (props.class ? " " + props.class : "")}>
+    <div className={"header" + (className ? " " + className : "")}>
       <input type="text" placeholder="Header?" />
     </div>
   )

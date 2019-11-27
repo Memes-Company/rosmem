@@ -33,9 +33,9 @@ export const App = () => {
 
   return (
     <div className="app">
-      <Header class="app__header" />
-      <Body class="app__body" />
-      <Footer class="app__footer" />
+      <Header className="app__header" />
+      <Body className="app__body" />
+      <Footer className="app__footer" />
     </div>
   )
 }

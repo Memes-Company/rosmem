@@ -1,11 +1,11 @@
 import React from 'react';
-import { BaseProps } from '../../types';
+import { ClassName } from '../../types';
 import './body.container.css';
 
-export const Body = (props: BaseProps) => {
+export const Body: React.FC<ClassName<{}>> = ({className}) => {
   return (
-    <div className={"body" + (props.class ? " " + props.class : "")}>
-      <span className="body-title">Body</span>
+    <div className={"body" + (className ? " " + className : "")}>
+      Body
     </div>
   )
 }
