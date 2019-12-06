@@ -1,0 +1,15 @@
+.link {
+  text-decoration: none;
+  transition: color .2s ease-in-out;
+  color: rgb(252, 112, 90);
+}
+
+.link:visited {
+  color: rgb(252, 112, 90);
+}
+
+.link:hover, 
+.link:focus {
+  color: #FF2400;
+  outline: none;
+}
