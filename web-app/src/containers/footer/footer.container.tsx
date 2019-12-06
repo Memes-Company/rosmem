@@ -1,11 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ClassName } from '../../types';
+import { useParentClassName } from '../../hooks';
 import { fromEvent, BehaviorSubject } from 'rxjs';
 import { map, tap, filter, distinctUntilChanged } from 'rxjs/operators';
 import {ReactComponent as Logoname} from '../../assets/svg/logoname.svg';
 import './footer.container.css';
 
 export const Footer: React.FC<ClassName<{}>> = ({className}) => {
+  const parentClassName = useParentClassName(className);
   const [isTestLight, setIsTestLight] = useState(false)
 
   const footerElement = useRef<HTMLDivElement>(null);
@@ -58,7 +60,7 @@ export const Footer: React.FC<ClassName<{}>> = ({className}) => {
     <div
       ref={footerElement}
       className={"footer" +
-        (className ? " " + className : "") +
+        parentClassName +
         (isTestLight ? " footer_text-light" : " footer_text-dark")}
       style={{ backgroundColor: "rgba(66, 66, 66, 0)" }}>
 
