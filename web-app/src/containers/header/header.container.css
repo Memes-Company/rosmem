@@ -1,6 +1,9 @@
 .header {
   position: fixed;
-  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
   text-align: center;
   padding: 35px 0;
   background-color: rgba(255, 255, 255, .9);
