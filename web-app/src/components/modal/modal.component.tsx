@@ -1,11 +1,6 @@
 import React from 'react';
+import { ModalProps } from '../../types';
 import './modal.component.css';
-
-type ModalProps = {
-  show: boolean;
-  buttonTitle?: string;
-  onClick?: (event: React.MouseEvent) => void;
-}
 
 export const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({show = true, children, buttonTitle = "OK Boomer", onClick}) => {
 
