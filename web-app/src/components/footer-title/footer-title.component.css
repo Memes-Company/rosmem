@@ -1,0 +1,21 @@
+.footer-title {
+  padding: 35px 0;
+  line-height: 0;
+  min-height: 100px;
+  min-height: calc(100vh - var(--viewportVH, 1vh) * 100 + 100px);
+  transition: min-height .15s ease-out;
+}
+
+.footer-title__logoname {
+  height: 30px;
+  width: 100%;
+  transition: fill .2s ease-in-out;
+}
+
+.footer-title__logoname_dark {
+  fill: black;
+}
+
+.footer-title__logoname_light {
+  fill: white;
+}
