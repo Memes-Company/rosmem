@@ -1,0 +1,12 @@
+.footer-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  justify-content: space-around;
+  column-gap: 20px;
+  transform: translateY(calc((100vh - var(--viewportVH, 1vh) * 100) / (-2)));
+  transition: transform .15s ease-out;
+}
+
+.footer-body__section {
+  place-self: center;
+}

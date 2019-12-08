@@ -1,11 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ClassName } from '../../types';
+import { useParentClassName } from '../../hooks';
+import { FooterThemeContext } from '../../contexts';
+import { 
+  FooterTitle, 
+  FooterBody, 
+  FooterCreators
+} from '../../components';
 import { fromEvent, BehaviorSubject } from 'rxjs';
 import { map, tap, filter, distinctUntilChanged } from 'rxjs/operators';
-import {ReactComponent as Logoname} from '../../assets/svg/logoname.svg';
 import './footer.container.css';
 
 export const Footer: React.FC<ClassName<{}>> = ({className}) => {
+  const parentClassName = useParentClassName(className);
   const [isTestLight, setIsTestLight] = useState(false)
 
   const footerElement = useRef<HTMLDivElement>(null);
@@ -55,21 +62,15 @@ export const Footer: React.FC<ClassName<{}>> = ({className}) => {
     }
   }, []);
   return (
-    <div
-      ref={footerElement}
-      className={"footer" +
-        (className ? " " + className : "") +
-        (isTestLight ? " footer_text-light" : " footer_text-dark")}
-      style={{ backgroundColor: "rgba(66, 66, 66, 0)" }}>
-
-      <div className="footer__title">
-        <Logoname className={"footer__logoname" + 
-          (isTestLight ? " footer__logoname_light" : " footer__logoname_dark") }
-        />
+    <FooterThemeContext.Provider value={isTestLight ? "light" : "dark"}>
+      <div
+        ref={footerElement}
+        className={"footer" + parentClassName}
+        style={{ backgroundColor: "rgba(66, 66, 66, 0)" }}>
+        <FooterTitle />
+        <FooterBody ref={footerBodyElement} />
+        <FooterCreators />
       </div>
-      <div ref={footerBodyElement} className="footer__body">
-        <span className="footer-content">Footer Content</span>
-      </div>
-    </div>
+    </FooterThemeContext.Provider>
   )
 }

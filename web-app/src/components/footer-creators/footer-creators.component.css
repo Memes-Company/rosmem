@@ -1,0 +1,12 @@
+.footer-creators {
+  padding: 40px 0;
+  transition: color .2s ease-in-out;
+}
+
+.footer-creators_light {
+  color: white;
+}
+
+.footer-creators_dark {
+  color: black;
+}

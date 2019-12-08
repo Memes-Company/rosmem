@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { ClassName } from '../../types';
+import { useParentClassName } from '../../hooks';
 import { Modal } from '../../components';
 import './body.container.css';
 
 export const Body: React.FC<ClassName<{}>> = ({className}) => {
+  const parentClassName = useParentClassName(className);
   const [isModalActive, setIsModalActive] = useState(true);
 
   const onModalClick = (event: React.MouseEvent) => {
@@ -11,7 +13,7 @@ export const Body: React.FC<ClassName<{}>> = ({className}) => {
   }
 
   return (
-    <div className={"body" + (className ? " " + className : "")}>
+    <div className={"body" + parentClassName}>
       <div className="body__modal">
         <div className="body__modal-top">
           <Modal show={isModalActive} onClick={onModalClick}>
