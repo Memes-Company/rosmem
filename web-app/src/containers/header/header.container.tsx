@@ -1,10 +1,10 @@
 import React from 'react';
 import { ClassName } from '../../types';
-import { useParentClassName } from '../../hooks';
+import { useClassName } from '../../hooks';
 import './header.container.css';
 
 export const Header: React.FC<ClassName<{}>> = ({className}) => {
-  const parentClassName = useParentClassName(className);
+  const parentClassName = useClassName(className);
 
   return (
     <div className={"header" + parentClassName}>
