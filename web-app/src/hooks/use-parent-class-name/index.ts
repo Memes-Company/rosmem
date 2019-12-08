@@ -1,1 +1,0 @@
-export * from './use-parent-class-name.hook';

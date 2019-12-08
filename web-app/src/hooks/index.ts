@@ -1,1 +1,1 @@
-export * from './use-parent-class-name';
+export * from './use-class-name';
