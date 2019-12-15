@@ -7,3 +7,4 @@ export * from './footer-section';
 export * from './link';
 export * from './button';
 export * from './l10n';
+export * from './app';
