@@ -4,3 +4,4 @@ export * from './footer';
 export * from './footer-link';
 export * from './footer-section';
 export * from './link';
+export * from './l10n';
