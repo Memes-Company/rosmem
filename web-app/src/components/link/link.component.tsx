@@ -7,7 +7,7 @@ export const Link: React.FC<React.PropsWithChildren<ClassName<LinkProps>>> = ({c
   const parentClassName = useClassName(className);
 
   return (
-    <a href={url} className={"link" + parentClassName}>
+    <a href={url} onClick={onClick} className={"link" + parentClassName}>
       {children}
     </a>
   )

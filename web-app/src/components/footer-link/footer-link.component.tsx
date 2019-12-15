@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { FooterTheme } from '../../types';
+import { FooterTheme, LinkProps } from '../../types';
 import { FooterThemeContext } from '../../contexts';
 import { FooterLinkProps } from '../../types';
 import { Link } from '../../components';
@@ -22,13 +22,17 @@ const footerLinkDisplay = {
   inline: "footer-link_inline"
 }
 
-export const FooterLink: React.FC<React.PropsWithChildren<FooterLinkProps>> = ({display = "block", url, external = false, children}) => {
+export const FooterLink: React.FC<React.PropsWithChildren<FooterLinkProps>> = ({display = "block", onClick, url, external = false, children}) => {
   const footerTheme: FooterTheme = useContext(FooterThemeContext);
   const {link: linkTheme, svg: svgTheme} = footerLinkTheme[footerTheme];
   const linkDisplay = footerLinkDisplay[display];
-
+  const linkProps: LinkProps = {
+    onClick,
+    url
+  }
+  
   return (
-    <Link url={url} className={`footer-link ${linkTheme} ${linkDisplay}`}>
+    <Link {...linkProps} className={`footer-link ${linkTheme} ${linkDisplay}`}>
       {children}
       {external ? <LinkOutSVG className={`footer-link__svg ${svgTheme}`} /> : null}
     </Link>

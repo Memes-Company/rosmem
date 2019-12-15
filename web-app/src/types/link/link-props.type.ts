@@ -1,3 +1,4 @@
 export type LinkProps = {
-  url: string;
+  onClick?: () => void;
+  url?: string;
 }
