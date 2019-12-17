@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { ClassName } from '../../types';
-import { useParentClassName } from '../../hooks';
+import { useClassName } from '../../hooks';
 import { Modal } from '../../components';
 import './body.container.css';
 
 export const Body: React.FC<ClassName<{}>> = ({className}) => {
-  const parentClassName = useParentClassName(className);
+  const parentClassName = useClassName(className);
   const [isModalActive, setIsModalActive] = useState(true);
 
   const onModalClick = (event: React.MouseEvent) => {

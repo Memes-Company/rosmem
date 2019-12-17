@@ -1,5 +1,6 @@
+import { LinkProps } from '../../types';
+
 export type FooterLinkProps = {
   display?: "inline" | "block";
-  url: string;
   external?: boolean;
-}
+} & LinkProps;

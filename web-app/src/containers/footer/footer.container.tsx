@@ -1,18 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ClassName } from '../../types';
-import { useParentClassName } from '../../hooks';
+import { useClassName } from '../../hooks';
 import { FooterThemeContext } from '../../contexts';
 import { 
   FooterTitle, 
-  FooterBody, 
   FooterCreators
 } from '../../components';
+import { FooterBody } from '../../containers';
 import { fromEvent, BehaviorSubject } from 'rxjs';
 import { map, tap, filter, distinctUntilChanged } from 'rxjs/operators';
 import './footer.container.css';
 
 export const Footer: React.FC<ClassName<{}>> = ({className}) => {
-  const parentClassName = useParentClassName(className);
+  const parentClassName = useClassName(className);
   const [isTestLight, setIsTestLight] = useState(false)
 
   const footerElement = useRef<HTMLDivElement>(null);

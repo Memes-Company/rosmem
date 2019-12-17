@@ -1,0 +1,40 @@
+.footer-button {
+  line-height: 2rem;
+}
+
+
+.footer-button_block {
+  display: block;
+}
+
+.footer-button_inline {
+  display: inline;
+}
+
+.footer-button_light,
+.footer-button_light:visited {
+  color: white;
+}
+
+.footer-button_light:visited {
+  color: unset
+}
+
+.footer-button_light:focus,
+.footer-button_light:hover {
+  color: #FF2400;
+}
+
+.footer-button_dark,
+.footer-button_dark:visited {
+  color: black;
+}
+
+.footer-button_dark:focus,
+.footer-button_dark:hover {
+  color: #FF2400;
+}
+
+.footer-button_active {
+  text-decoration: underline;
+}
