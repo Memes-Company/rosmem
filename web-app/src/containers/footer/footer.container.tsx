@@ -4,9 +4,9 @@ import { useClassName } from '../../hooks';
 import { FooterThemeContext } from '../../contexts';
 import { 
   FooterTitle, 
-  FooterBody, 
   FooterCreators
 } from '../../components';
+import { FooterBody } from '../../containers';
 import { fromEvent, BehaviorSubject } from 'rxjs';
 import { map, tap, filter, distinctUntilChanged } from 'rxjs/operators';
 import './footer.container.css';

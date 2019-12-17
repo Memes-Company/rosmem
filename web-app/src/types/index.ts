@@ -4,6 +4,7 @@ export * from './footer';
 export * from './footer-link';
 export * from './footer-button';
 export * from './footer-section';
+export * from './footer-body';
 export * from './link';
 export * from './button';
 export * from './l10n';
