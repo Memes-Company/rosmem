@@ -1,6 +1,5 @@
-import { SwitchLanguage } from '../../../types';
-
-export const L10N_SWITCH_LANGUAGE = "L10N_SWITCH_LANGUAGE";
+import { SwitchLanguage } from 'src/types';
+import { L10N_SWITCH_LANGUAGE } from 'src/store/action-types';
 
 export const switchLanguage: SwitchLanguage = (language) => ({
   type: L10N_SWITCH_LANGUAGE,

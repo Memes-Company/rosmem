@@ -1,8 +1,8 @@
 import {
   L10nState,
   L10nActions,
-} from '../../../types';
-import { L10N_SWITCH_LANGUAGE } from '../../actions';
+} from 'src/types';
+import { L10N_SWITCH_LANGUAGE } from 'src/store/action-types';
 
 const l10nInitialState: L10nState = {
   language: "en"
