@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { FooterTheme, LinkProps } from '../../../types';
-import { FooterThemeContext } from '../../../contexts';
-import { FooterLinkProps } from '../../../types';
-import { Link } from '../../../components/pure';
-import { ReactComponent as LinkOutSVG } from '../../../assets/svg/link-out.svg';
+import { FooterTheme, LinkProps } from 'src/types';
+import { FooterThemeContext } from 'src/contexts';
+import { FooterLinkProps } from 'src/types';
+import { Link } from 'src/components/pure';
+import { ReactComponent as LinkOutSVG } from 'src/assets/svg/link-out.svg';
 import './footer-link.pure.css';
 
 const footerLinkTheme = {

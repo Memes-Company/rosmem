@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { FooterTheme, FooterButtonProps, ButtonProps } from '../../../types';
-import { Button } from '../../../components/pure';
-import { FooterThemeContext } from '../../../contexts';
+import { FooterTheme, FooterButtonProps, ButtonProps } from 'src/types';
+import { Button } from 'src/components/pure';
+import { FooterThemeContext } from 'src/contexts';
 import './footer-button.pure.css';
-import { useClassName } from '../../../hooks';
+import { useClassName } from 'src/hooks';
 
 const footerButtonTheme = {
   light: "footer-button_light",

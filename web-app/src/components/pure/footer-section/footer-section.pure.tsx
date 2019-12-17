@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { ClassName } from '../../../types';
-import { useClassName } from '../../../hooks';
-import { FooterThemeContext } from '../../../contexts';
-import { FooterSectionProps, FooterTheme } from '../../../types';
+import { ClassName } from 'src/types';
+import { useClassName } from 'src/hooks';
+import { FooterThemeContext } from 'src/contexts';
+import { FooterSectionProps, FooterTheme } from 'src/types';
 import './footer-section.pure.css';
 
 const footerSectionTheme = {

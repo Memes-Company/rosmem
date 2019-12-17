@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { FooterThemeContext } from '../../../contexts';
-import { Link } from '../../../components/pure';
+import { FooterThemeContext } from 'src/contexts';
+import { Link } from 'src/components/pure';
 import './footer-creators.pure.css';
 
 const footerCreatorsTheme = {

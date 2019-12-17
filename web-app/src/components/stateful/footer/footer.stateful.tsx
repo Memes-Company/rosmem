@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { ClassName } from '../../../types';
-import { useClassName } from '../../../hooks';
-import { FooterThemeContext } from '../../../contexts';
+import { ClassName } from 'src/types';
+import { useClassName } from 'src/hooks';
+import { FooterThemeContext } from 'src/contexts';
 import { 
   FooterTitle, 
   FooterCreators
-} from '../../../components/pure';
-import { FooterBody } from '../../../components/stateful';
+} from 'src/components/pure';
+import { FooterBody } from 'src/components/stateful';
 import { fromEvent, BehaviorSubject } from 'rxjs';
 import { map, tap, filter, distinctUntilChanged } from 'rxjs/operators';
 import './footer.stateful.css';

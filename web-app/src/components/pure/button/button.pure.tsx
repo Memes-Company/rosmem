@@ -1,6 +1,6 @@
 import React from 'react';
-import { ButtonProps, ClassName } from '../../../types';
-import { useClassName } from '../../../hooks';
+import { ButtonProps, ClassName } from 'src/types';
+import { useClassName } from 'src/hooks';
 import './button.pure.css'; 
 
 export const Button: React.FC<React.PropsWithChildren<ClassName<ButtonProps>>> = ({onClick, children, className}) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ModalProps } from '../../../types';
+import { ModalProps } from 'src/types';
 import './modal.pure.css';
 
 export const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({show = true, children, buttonTitle = "OK Boomer", onClick}) => {

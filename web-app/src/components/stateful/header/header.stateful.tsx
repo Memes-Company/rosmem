@@ -1,6 +1,6 @@
 import React from 'react';
-import { ClassName } from '../../../types';
-import { useClassName } from '../../../hooks';
+import { ClassName } from 'src/types';
+import { useClassName } from 'src/hooks';
 import './header.stateful.css';
 
 export const Header: React.FC<ClassName<{}>> = ({className}) => {

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { FooterThemeContext } from '../../../contexts';
-import { FooterTheme } from '../../../types'
-import { ReactComponent as LogonameSVG } from '../../../assets/svg/logoname.svg';
+import { FooterThemeContext } from 'src/contexts';
+import { FooterTheme } from 'src/types'
+import { ReactComponent as LogonameSVG } from 'src/assets/svg/logoname.svg';
 import './footer-title.pure.css';
 
 const footerTitleTheme = {

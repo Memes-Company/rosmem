@@ -1,4 +1,4 @@
-import { ButtonProps } from '../../types';
+import { ButtonProps } from 'src/types';
 
 export type FooterButtonProps = {
   isActive?: boolean;

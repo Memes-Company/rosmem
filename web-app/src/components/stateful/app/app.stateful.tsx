@@ -3,7 +3,7 @@ import {
   Header, 
   Body, 
   Footer 
-} from '../../../components/stateful';
+} from 'src/components/stateful';
 import { fromEvent } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import './app.stateful.css';

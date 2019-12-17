@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { ClassName } from '../../../types';
-import { useClassName } from '../../../hooks';
-import { Modal } from '../../../components/pure';
+import { ClassName } from 'src/types';
+import { useClassName } from 'src/hooks';
+import { Modal } from 'src/components/pure';
 import './body.stateful.css';
 
 export const Body: React.FC<ClassName<{}>> = ({className}) => {

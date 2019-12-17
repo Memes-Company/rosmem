@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { AppState } from '../../../types';
-import { switchLanguage } from '../../../store/actions';
-import { FooterSection, FooterLink, FooterButton } from '../../../components/pure';
+import { AppState } from 'src/types';
+import { switchLanguage } from 'src/store/actions';
+import { FooterSection, FooterLink, FooterButton } from 'src/components/pure';
 import './footer-body.stateful.css';
 
 export const FooterBody = React.forwardRef<HTMLDivElement, {}>((props, ref) => {
