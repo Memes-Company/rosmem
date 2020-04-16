@@ -11,5 +11,5 @@ export interface State extends TargetProps {
 
 export interface TargetProps {
   forwardedRef: React.RefObject<HTMLElement>;
-  progress: number;
+  visibilityRatio: number;
 }
