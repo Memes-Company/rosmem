@@ -9,7 +9,7 @@ export class ViewportTracker extends React.Component<Props, State> {
 
     this.state = {
       forwardedRef: React.createRef(),
-      progress: 0,
+      visibilityRatio: 0,
     };
   };
 
@@ -48,7 +48,11 @@ export class ViewportTracker extends React.Component<Props, State> {
       throw new TypeError('it\'s impossible, but your child\'s "document" is null. (O_O;)');
     }
 
-    const subscription = fromEvent<React.ChangeEvent<Document>>(targetDocument, 'scroll')
+    const eventOptions = {
+      passive: true,
+    } as EventListenerOptions;
+
+    const subscription = fromEvent<React.ChangeEvent<Document>>(targetDocument, 'scroll', eventOptions)
       .pipe(
         map(
           this.getHeightInViewportOf(targetElement)),
@@ -59,7 +63,7 @@ export class ViewportTracker extends React.Component<Props, State> {
       .subscribe(
         (ratio: number) => {
           this.setState({
-            progress: ratio,
+            visibilityRatio: ratio,
           });
         });
 
@@ -79,9 +83,9 @@ export class ViewportTracker extends React.Component<Props, State> {
   render() {
     const {
       forwardedRef,
-      progress,
+      visibilityRatio,
     } = this.state;
 
-    return this.props.children({forwardedRef, progress});
+    return this.props.children({forwardedRef, visibilityRatio});
   }
 }
