@@ -1,7 +1,24 @@
 import * as React from 'react';
 import { fromEvent } from 'rxjs';
-import { map, filter } from 'rxjs/operators';
-import { Props, State } from './viewport-tracker.module.types';
+import { 
+  map, 
+  filter, 
+  pairwise, 
+  throttleTime, 
+} from 'rxjs/operators';
+import { 
+  eventFilter,
+  combineFilters,
+  takeLastEvent,
+  convertEventOf, 
+  getVisibilityRationOf,
+  getHeightInViewport,
+} from './viewport-tracker.module.helper';
+import { 
+  Props, 
+  State, 
+  TrackerEvent, 
+} from './viewport-tracker.module.types';
 
 export class ViewportTracker extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -11,29 +28,11 @@ export class ViewportTracker extends React.Component<Props, State> {
       forwardedRef: React.createRef(),
       visibilityRatio: 0,
     };
-  };
-
-  private getHeightInViewportOf(element: HTMLElement) {
-    return (event: React.ChangeEvent<Document>): number => {
-      const window = event.target.defaultView as Window;
-
-      return window.innerHeight - element.getBoundingClientRect().top;
-    };
-  }
-
-  private getWhenElementInViewport(heightInViewport: number) {
-    return heightInViewport >= 0;
-  }; 
-
-  private heightInViewportToRatioOf(element: HTMLElement) {
-    return (heightInViewport: number): number => {
-      return heightInViewport / element.clientHeight;
-    };
   }
 
   componentDidMount() {
     const { 
-      forwardedRef: { 
+      forwardedRef: {
         current: targetElement, 
       }, 
     } = this.state;
@@ -54,12 +53,20 @@ export class ViewportTracker extends React.Component<Props, State> {
 
     const subscription = fromEvent<React.ChangeEvent<Document>>(targetDocument, 'scroll', eventOptions)
       .pipe(
+        throttleTime(50),
         map(
-          this.getHeightInViewportOf(targetElement)),
+          convertEventOf(targetElement).toTrackerEvent),
+        pairwise(),
         filter(
-          this.getWhenElementInViewport),
+          combineFilters<TrackerEvent>(
+            eventFilter().not().aboveViewport,
+            eventFilter().not().entireInViewport,
+            eventFilter().not().underViewport)),
         map(
-          this.heightInViewportToRatioOf(targetElement)))
+          takeLastEvent<TrackerEvent>(
+            getHeightInViewport)),
+        map(
+          getVisibilityRationOf(targetElement)))
       .subscribe(
         (ratio: number) => {
           this.setState({
@@ -86,6 +93,6 @@ export class ViewportTracker extends React.Component<Props, State> {
       visibilityRatio,
     } = this.state;
 
-    return this.props.children({forwardedRef, visibilityRatio});
+    return this.props.children({ forwardedRef, visibilityRatio });
   }
 }
