@@ -3,22 +3,10 @@ import { fromEvent } from 'rxjs';
 import { 
   map, 
   filter, 
-  pairwise, 
   throttleTime, 
 } from 'rxjs/operators';
-import { 
-  eventFilter,
-  combineFilters,
-  takeLastEvent,
-  convertEventOf, 
-  getVisibilityRationOf,
-  getHeightInViewport,
-} from './viewport-tracker.module.helper';
-import { 
-  Props, 
-  State, 
-  TrackerEvent, 
-} from './viewport-tracker.module.types';
+import { getOperatorsOf } from './viewport-tracker.module.helper';
+import { Props, State } from './viewport-tracker.module.types';
 
 export class ViewportTracker extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -51,22 +39,19 @@ export class ViewportTracker extends React.Component<Props, State> {
       passive: true,
     } as EventListenerOptions;
 
+    const {
+      toHeightInViewport,
+      toRatio,
+      distinctAndOneMore,
+    } = getOperatorsOf(targetElement);
+
+    // Add some functionality for pausing subscription until targetElement not in viewport
     const subscription = fromEvent<React.ChangeEvent<Document>>(targetDocument, 'scroll', eventOptions)
       .pipe(
         throttleTime(50),
-        map(
-          convertEventOf(targetElement).toTrackerEvent),
-        pairwise(),
-        filter(
-          combineFilters<TrackerEvent>(
-            eventFilter().not().aboveViewport,
-            eventFilter().not().entireInViewport,
-            eventFilter().not().underViewport)),
-        map(
-          takeLastEvent<TrackerEvent>(
-            getHeightInViewport)),
-        map(
-          getVisibilityRationOf(targetElement)))
+        map(toHeightInViewport),
+        map(toRatio),
+        filter(distinctAndOneMore))
       .subscribe(
         (ratio: number) => {
           this.setState({
