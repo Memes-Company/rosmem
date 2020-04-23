@@ -14,7 +14,7 @@ export class ViewportTracker extends React.Component<Props, State> {
 
     this.state = {
       forwardedRef: React.createRef(),
-      visibilityRatio: 0,
+      ratioFlow: null,
     };
   }
 
@@ -45,39 +45,24 @@ export class ViewportTracker extends React.Component<Props, State> {
       distinctAndOneMore,
     } = getOperatorsOf(targetElement);
 
-    // Add some functionality for pausing subscription until targetElement not in viewport
-    const subscription = fromEvent<React.ChangeEvent<Document>>(targetDocument, 'scroll', eventOptions)
+    const ratioFlow = fromEvent<React.ChangeEvent<Document>>(targetDocument, 'scroll', eventOptions)
       .pipe(
         throttleTime(50),
         map(toHeightInViewport),
         map(toRatio),
         filter(distinctAndOneMore))
-      .subscribe(
-        (ratio: number) => {
-          this.setState({
-            visibilityRatio: ratio,
-          });
-        });
 
     this.setState({
-      subscription,
-    });
-  }
-
-  componentWillUnmount() {
-    const { subscription } = this.state;
-
-    if (subscription) {
-      subscription.unsubscribe();
-    }
+      ratioFlow
+    })
   }
 
   render() {
     const {
       forwardedRef,
-      visibilityRatio,
+      ratioFlow,
     } = this.state;
 
-    return this.props.children({ forwardedRef, visibilityRatio });
+    return this.props.children({ forwardedRef, ratioFlow });
   }
 }

@@ -1,17 +1,17 @@
 import * as React from 'react';
-import { Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 
 export interface Props {
   children: (targetProps: TargetProps) => React.ReactNode;
 }
 
 export interface State extends TargetProps {
-  subscription?: Subscription;
+  ratioFlow: Observable<number> | null;
 }
 
 export interface TargetProps {
   forwardedRef: React.RefObject<HTMLDivElement>;
-  visibilityRatio: number;
+  ratioFlow: Observable<number> | null;
 }
 
 export interface EventConverter {
