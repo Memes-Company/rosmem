@@ -6,9 +6,7 @@ import {
   FooterTitle,
   FooterContent,
 } from './components/pure';
-import {
-  getOperatorsOf,
-} from './footer.module.helper';
+import { getOperatorsOf } from './footer.module.helper';
 import styles from './footer.module.css';
 import { Observable } from 'rxjs';
 
@@ -30,7 +28,7 @@ const subscribeToRatioFlow = (ratioFlow: Observable<number> | null, rootElement:
     setBackgroundColor(ratio);
     setColor(ratio);
   });
-}
+};
 
 export class Footer extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -47,7 +45,7 @@ export class Footer extends React.Component<Props, State> {
 
     if (isSecondRender === false) {
       return {
-        isSecondRender: true
+        isSecondRender: true,
       };
     }
 
@@ -55,7 +53,7 @@ export class Footer extends React.Component<Props, State> {
       const { ratioFlow } = props;
       const { 
         rootRef: {
-        current: rootElement,
+          current: rootElement, 
         },
         ratioSubscription: subscription,
       } = state;
@@ -66,14 +64,12 @@ export class Footer extends React.Component<Props, State> {
 
       const ratioSubscription = subscribeToRatioFlow(ratioFlow, rootElement);
 
-      return {
-        ratioSubscription
-      }
+      return { ratioSubscription };
     }
 
     return null;
   }
-
+  
   render() {
     const { 
       forwardedRef,

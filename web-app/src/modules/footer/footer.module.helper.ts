@@ -16,8 +16,8 @@ export const getOperatorsOf = (element: HTMLDivElement) => ({
       element.style.setProperty('--footer-color', 'black');
     }
 
-  }
-})
+  },
+});
 
 // DOTO: Take out a function to Shared module
 export const setVariable = (variable: string) => ({

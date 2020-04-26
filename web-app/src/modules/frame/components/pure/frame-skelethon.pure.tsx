@@ -12,7 +12,7 @@ export class FrameSkelethon extends React.Component<Props> {
     const [
       header,
       body,
-      footer
+      footer,
     ] = (isArray(children) && children) || [];
 
     return (
@@ -27,6 +27,6 @@ export class FrameSkelethon extends React.Component<Props> {
           {footer}
         </div>
       </>
-    )
+    );
   }
 }

@@ -17,5 +17,5 @@ export const getOperatorsOf = (element: HTMLDivElement) => ({
         behavior: 'smooth',
       });
     }
-  }
+  },
 });

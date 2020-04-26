@@ -7,7 +7,11 @@ import {
   debounceTime, 
 } from 'rxjs/operators';
 import { getOperatorsOf } from './viewport-tracker.module.helper';
-import { Props, State, TargetProps } from './viewport-tracker.module.types';
+import {
+  Props, 
+  State, 
+  TargetProps, 
+} from './viewport-tracker.module.types';
 
 export class ViewportTracker extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -52,17 +56,16 @@ export class ViewportTracker extends React.Component<Props, State> {
         debounceTime(50),
         map(toHeightInViewport),
         map(toRatio),
-        filter(distinctAndOneMore))
+        filter(distinctAndOneMore));
 
     this.setState({
-      ratioFlow
-    })
+      ratioFlow,
+    });
   }
 
   render() {
     const {
       children,
-      // ...rest
     } = this.props;
 
     const {
@@ -73,8 +76,7 @@ export class ViewportTracker extends React.Component<Props, State> {
     const childrenProps: TargetProps = {
       forwardedRef,
       ratioFlow,
-      // ...rest
-    }
+    };
 
     return children(childrenProps);
   }

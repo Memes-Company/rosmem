@@ -11,15 +11,15 @@ export class Frame extends React.Component<Props, State> {
     super(props);
 
     this.state = {
-      root: React.createRef()
-    }
+      root: React.createRef(),
+    };
   }
 
   componentDidMount() {
     const { 
       root: {
         current: rootElement,
-      }
+      },
     } = this.state;
 
     if (rootElement === null) {
@@ -42,7 +42,7 @@ export class Frame extends React.Component<Props, State> {
         tap(setViewportVH))
       .subscribe(onWindowResize);
 
-    this.setState({resizeSubscription});
+    this.setState({ resizeSubscription });
 
     window.dispatchEvent(new Event('resize'));
   }
@@ -59,7 +59,7 @@ export class Frame extends React.Component<Props, State> {
 
     const spacerProps: SpacerProps = {
       spacer: styles.spacer,
-    }
+    };
 
     return (
       <div ref={root} className={styles.root}>

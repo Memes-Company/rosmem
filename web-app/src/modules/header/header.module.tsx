@@ -7,6 +7,6 @@ export class Header extends React.Component {
       <header className={styles.root}>
         Header
       </header>
-    )
+    );
   }
 }
