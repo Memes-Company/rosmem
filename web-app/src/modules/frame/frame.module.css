@@ -1,0 +1,31 @@
+.root {
+  position: relative;
+  --header-height: 100px;
+  --footer-gap-height: 100px;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.body {
+  position: relative;
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: var(--header-height);
+  min-height: calc(100vh - var(--header-height) - var(--footer-gap-height));
+  min-height: calc(var(--viewportVH, 1vh) * 100 - var(--header-height) - var(--footer-gap-height));
+  transition: min-height .15s ease-out;
+}
+
+.footer {
+  
+}
+
+.spacer {
+  min-height: calc(100vh - var(--viewportVH, 1vh) * 100 + 100px);
+}
