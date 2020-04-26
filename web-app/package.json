@@ -8,6 +8,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "check": "eslint ./src/**/*.{ts,tsx}",
     "deploy:dev": "yarn deploy:changebuildcname \"\" && yarn gh-pages -d build",
     "deploy:prod": "yarn deploy:changebuildcname \"xn--e1anbfjh.xn--p1ai\" && yarn deploy:rf && yarn deploy:changebuildcname \"rosmem.com\" && yarn deploy:com",
     "deploy:changebuildcname": "echo $1 > \"$(git rev-parse --show-toplevel)/web-app/build/CNAME\"",
@@ -16,7 +17,34 @@
     "serve-build": "yarn serve build/ --no-clipboard --no-compression --symlinks"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "indent": ["error", 2],
+      "lines-between-class-members": ["error", "always"],
+      "semi": ["warn", "always"],
+      "quotes": ["warn", "single"],
+      "object-curly-spacing": ["warn", "always"],
+      "object-curly-newline": ["warn", {
+        "ObjectExpression": {
+          "multiline": true, 
+          "minProperties": 3,
+          "consistent": true
+        },
+        "ObjectPattern": {
+          "multiline": true, 
+          "minProperties": 3,
+          "consistent": true
+        },
+        "ImportDeclaration": {
+          "multiline": true, 
+          "minProperties": 3,
+          "consistent": true
+        },
+        "ExportDeclaration": "never"
+      }],
+      "comma-dangle": ["warn", "always-multiline"],
+      "no-empty": "warn"
+    }
   },
   "browserslist": {
     "production": [
