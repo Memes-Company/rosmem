@@ -1,16 +1,17 @@
 import * as React from 'react';
 import { fromEvent } from 'rxjs';
-import { 
-  map, 
-  filter, 
+import {
+  map,
+  filter,
   throttleTime,
-  debounceTime, 
+  debounceTime,
 } from 'rxjs/operators';
+
 import { getOperatorsOf } from './viewport-tracker.module.helper';
 import {
-  Props, 
-  State, 
-  TargetProps, 
+  Props,
+  State,
+  TargetProps,
 } from './viewport-tracker.module.types';
 
 export class ViewportTracker extends React.Component<Props, State> {
@@ -24,18 +25,18 @@ export class ViewportTracker extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    const { 
+    const {
       forwardedRef: {
-        current: targetElement, 
-      }, 
+        current: targetElement,
+      },
     } = this.state;
 
     if (!targetElement) {
       throw new TypeError('"targetElement" refers to an non-HTMLElement type object. Check the child element.');
     }
-    
+
     const targetDocument: Document | null = targetElement.ownerDocument;
-    
+
     if (!targetDocument) {
       throw new TypeError('it\'s impossible, but your child\'s "document" is null or undefined. (O_O;)');
     }

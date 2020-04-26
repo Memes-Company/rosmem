@@ -8,7 +8,7 @@ export function getOperatorsOf(element: HTMLDivElement): EventConverter {
 
       const isElementAboveViewport = elementSize.bottom < 0;
       const isElementUnderViewport = elementSize.top >= window.innerHeight;
-      
+
       if (isElementAboveViewport || isElementUnderViewport) {
         return 0;
       }
@@ -46,19 +46,19 @@ export function getOperatorsOf(element: HTMLDivElement): EventConverter {
       return (value: number) => {
         if (!previousValue) {
           previousValue = value;
-  
+
           return true;
         }
-  
+
         const targetElementHeight = element.getBoundingClientRect().height;
-        
+
         const isEqualToPrevious = value === previousValue;
         const isMinHeight = value === 0;
         const isMaxHeight = value === targetElementHeight;
         const isBoundary = isMinHeight || isMaxHeight;
-  
+
         previousValue = value;
-  
+
         return !(isEqualToPrevious && isBoundary);
       };
     })(),

@@ -1,10 +1,12 @@
 import * as React from 'react';
+
 import { Frame, FrameSkelethon } from 'src/modules/frame';
-import { Header } from 'src/modules/header';
 import { Body } from 'src/modules/body';
+import { Header } from 'src/modules/header';
 import { Footer } from 'src/modules/footer';
 import { ViewportTracker } from 'src/modules/viewport-tracker';
-import styles from  './app.module.css';
+
+import styles from './app.module.css';
 
 export class App extends React.Component {
   render() {

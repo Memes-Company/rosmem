@@ -1,14 +1,11 @@
 import * as React from 'react';
-import { createRef } from 'react';
-import classnames from 'classnames';
-import { Props, State } from './footer.module.types';
-import {
-  FooterTitle,
-  FooterContent,
-} from './components/pure';
-import { getOperatorsOf } from './footer.module.helper';
-import styles from './footer.module.css';
 import { Observable } from 'rxjs';
+import classnames from 'classnames';
+
+import { FooterTitle, FooterContent } from './components/pure';
+import { getOperatorsOf } from './footer.module.helper';
+import { Props, State } from './footer.module.types';
+import styles from './footer.module.css';
 
 const subscribeToRatioFlow = (ratioFlow: Observable<number> | null, rootElement: HTMLDivElement | null) => {
   if (ratioFlow === null) {
@@ -35,7 +32,7 @@ export class Footer extends React.Component<Props, State> {
     super(props);
 
     this.state = {
-      rootRef: createRef<HTMLDivElement>(),
+      rootRef: React.createRef<HTMLDivElement>(),
       isSecondRender: false,
     };
   }
@@ -51,9 +48,9 @@ export class Footer extends React.Component<Props, State> {
 
     if (isSecondRender) {
       const { ratioFlow } = props;
-      const { 
+      const {
         rootRef: {
-          current: rootElement, 
+          current: rootElement,
         },
         ratioSubscription: subscription,
       } = state;
@@ -69,9 +66,9 @@ export class Footer extends React.Component<Props, State> {
 
     return null;
   }
-  
+
   render() {
-    const { 
+    const {
       forwardedRef,
       spacer,
     } = this.props;

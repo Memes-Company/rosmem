@@ -6,7 +6,7 @@ export interface Props {
 }
 
 export interface State extends TargetProps {
-  
+
 }
 
 export interface TargetProps {

@@ -1,9 +1,13 @@
 import * as React from 'react';
 import { fromEvent } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { Props, State } from './frame.module.types';
+
 import { getOperatorsOf } from './frame.helper';
-import { SpacerProps } from './frame.module.types';
+import {
+  Props,
+  State,
+  SpacerProps,
+} from './frame.module.types';
 import styles from './frame.module.css';
 
 export class Frame extends React.Component<Props, State> {
@@ -16,7 +20,7 @@ export class Frame extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    const { 
+    const {
       root: {
         current: rootElement,
       },
@@ -52,7 +56,7 @@ export class Frame extends React.Component<Props, State> {
 
     resizeSubscription && resizeSubscription.unsubscribe();
   }
-  
+
   render() {
     const { children } = this.props;
     const { root } = this.state;
