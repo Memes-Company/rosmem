@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { createRef } from 'react';
+import classnames from 'classnames';
 import { Props, State } from './footer.module.types';
 import {
   FooterTitle,
@@ -76,6 +77,7 @@ export class Footer extends React.Component<Props, State> {
   render() {
     const { 
       forwardedRef,
+      spacer,
     } = this.props;
 
     const {
@@ -84,7 +86,7 @@ export class Footer extends React.Component<Props, State> {
 
     return (
       <footer ref={rootRef} className={styles.root}>
-        <div className={styles.title}>
+        <div className={classnames(styles.title, spacer)}>
           <FooterTitle />
         </div>
         <div ref={forwardedRef} className={styles.content}>

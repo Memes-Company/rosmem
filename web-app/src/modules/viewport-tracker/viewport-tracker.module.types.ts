@@ -6,12 +6,12 @@ export interface Props {
 }
 
 export interface State extends TargetProps {
-  ratioFlow: Observable<number> | null;
+  
 }
 
 export interface TargetProps {
-  forwardedRef: React.RefObject<HTMLDivElement>;
   ratioFlow: Observable<number> | null;
+  forwardedRef: React.RefObject<HTMLDivElement>;
 }
 
 export interface EventConverter {

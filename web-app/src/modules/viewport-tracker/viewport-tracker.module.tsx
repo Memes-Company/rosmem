@@ -3,10 +3,11 @@ import { fromEvent } from 'rxjs';
 import { 
   map, 
   filter, 
-  throttleTime, 
+  throttleTime,
+  debounceTime, 
 } from 'rxjs/operators';
 import { getOperatorsOf } from './viewport-tracker.module.helper';
-import { Props, State } from './viewport-tracker.module.types';
+import { Props, State, TargetProps } from './viewport-tracker.module.types';
 
 export class ViewportTracker extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -32,7 +33,7 @@ export class ViewportTracker extends React.Component<Props, State> {
     const targetDocument: Document | null = targetElement.ownerDocument;
     
     if (!targetDocument) {
-      throw new TypeError('it\'s impossible, but your child\'s "document" is null. (O_O;)');
+      throw new TypeError('it\'s impossible, but your child\'s "document" is null or undefined. (O_O;)');
     }
 
     const eventOptions = {
@@ -48,6 +49,7 @@ export class ViewportTracker extends React.Component<Props, State> {
     const ratioFlow = fromEvent<React.ChangeEvent<Document>>(targetDocument, 'scroll', eventOptions)
       .pipe(
         throttleTime(50),
+        debounceTime(50),
         map(toHeightInViewport),
         map(toRatio),
         filter(distinctAndOneMore))
@@ -59,10 +61,21 @@ export class ViewportTracker extends React.Component<Props, State> {
 
   render() {
     const {
+      children,
+      // ...rest
+    } = this.props;
+
+    const {
       forwardedRef,
       ratioFlow,
     } = this.state;
 
-    return this.props.children({ forwardedRef, ratioFlow });
+    const childrenProps: TargetProps = {
+      forwardedRef,
+      ratioFlow,
+      // ...rest
+    }
+
+    return children(childrenProps);
   }
 }

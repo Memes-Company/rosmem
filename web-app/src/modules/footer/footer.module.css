@@ -12,9 +12,9 @@
 
 .title {
   display: block;
-  min-height: 100px;
   padding: 35px 0;
   fill: var(--footer-color);
+  transition: min-height .15s ease-out;
 }
 
 .content {
@@ -23,6 +23,8 @@
   align-items: center;
   height: 350px;
   background-image: url(../../assets/svg/stripes.svg);
+  transform: translateY(calc((100vh - var(--viewportVH, 1vh) * 100) / (-2)));
+  transition: transform .15s ease-out;
 }
 
 .creators {

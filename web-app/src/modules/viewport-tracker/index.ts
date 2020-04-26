@@ -1,4 +1,5 @@
 import { ViewportTracker } from './viewport-tracker.module';
-import * as ViewportTrackerTypes from './viewport-tracker.module.types';
+import { TargetProps } from './viewport-tracker.module.types';
 
-export { ViewportTracker, ViewportTrackerTypes };
+export { ViewportTracker };
+export type { TargetProps };

@@ -19,6 +19,7 @@ export const getOperatorsOf = (element: HTMLDivElement) => ({
   }
 })
 
+// DOTO: Take out a function to Shared module
 export const setVariable = (variable: string) => ({
   of: (element: HTMLDivElement) => ({
     to: (red: number, green: number, blue:number): void => {
@@ -27,6 +28,7 @@ export const setVariable = (variable: string) => ({
   }),
 });
 
+// DOTO: Take out a function to Shared module
 export const getVariable = (variable: string) => ({
   of: (element: HTMLDivElement): RGB => {
     const [ red, green, blue ] = getComputedStyle(element).getPropertyValue(variable).trim().split(', ');

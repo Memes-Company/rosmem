@@ -7,8 +7,8 @@ export function getOperatorsOf(element: HTMLDivElement): EventConverter {
       const elementSize = element.getBoundingClientRect();
 
       const isElementAboveViewport = elementSize.bottom < 0;
-      const isElementUnderViewport = elementSize.top > window.innerHeight;
-
+      const isElementUnderViewport = elementSize.top >= window.innerHeight;
+      
       if (isElementAboveViewport || isElementUnderViewport) {
         return 0;
       }
