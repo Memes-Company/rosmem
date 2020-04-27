@@ -1,1 +1,0 @@
-export * from './footer-section-props.type';
