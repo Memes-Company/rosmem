@@ -5,6 +5,8 @@ import { Body } from 'src/modules/body';
 import { Header } from 'src/modules/header';
 import { Footer } from 'src/modules/footer';
 import { ViewportTracker } from 'src/modules/viewport-tracker';
+// import { FooterTitle } from 'src/modules/footer/components/pure';
+import { FooterTitle } from 'src/modules/shared/components/pure';
 
 import styles from './app.module.css';
 
@@ -23,6 +25,7 @@ export class App extends React.Component {
             </FrameSkelethon>
           )}
         </Frame>
+        <FooterTitle />
       </div>
     );
   }

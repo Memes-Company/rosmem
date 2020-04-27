@@ -1,0 +1,1 @@
+export { FooterTitle } from './footer-title.pure';

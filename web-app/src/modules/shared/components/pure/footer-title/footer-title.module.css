@@ -1,0 +1,9 @@
+.root {
+  line-height: 0;
+}
+
+.logo {
+  height: 30px;
+  width: 100%;
+  transition: fill .2s ease-in-out;
+}
