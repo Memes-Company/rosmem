@@ -22,7 +22,7 @@
   justify-content: center;
   align-items: center;
   height: 350px;
-  background-image: url(../../assets/svg/stripes.svg);
+  background-image: url(../../modules/shared/assets/svg/stripes.svg);
   transform: translateY(calc((100vh - var(--viewportVH, 1vh) * 100) / (-2)));
   transition: transform .15s ease-out;
 }
