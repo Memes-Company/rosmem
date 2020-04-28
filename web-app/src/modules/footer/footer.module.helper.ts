@@ -1,3 +1,25 @@
+import { Observable } from 'rxjs';
+
+export const subscribeToRatioFlow = (ratioFlow: Observable<number> | null, rootElement: HTMLDivElement | null) => {
+  if (ratioFlow === null) {
+    return null;
+  }
+
+  if (rootElement === null) {
+    throw new Error('Root element is \'null\'');
+  }
+
+  const {
+    setBackgroundColor,
+    setColor,
+  } = getOperatorsOf(rootElement);
+
+  return ratioFlow.subscribe(ratio => {
+    setBackgroundColor(ratio);
+    setColor(ratio);
+  });
+};
+
 export const getOperatorsOf = (element: HTMLDivElement) => ({
   setBackgroundColor: (ratio: number): void => {
     const high = getVariable('--high-boundary-color').of(element);

@@ -1,31 +1,12 @@
 import * as React from 'react';
-import { Observable } from 'rxjs';
+import { Subscription } from 'rxjs';
 import classnames from 'classnames';
 
 import { FooterTitle, FooterContent } from './components/pure';
-import { getOperatorsOf } from './footer.module.helper';
+import { subscribeToRatioFlow } from './footer.module.helper';
 import { Props, State } from './footer.module.types';
 import styles from './footer.module.css';
 
-const subscribeToRatioFlow = (ratioFlow: Observable<number> | null, rootElement: HTMLDivElement | null) => {
-  if (ratioFlow === null) {
-    return null;
-  }
-
-  if (rootElement === null) {
-    throw new Error('Root element is \'null\'');
-  }
-
-  const {
-    setBackgroundColor,
-    setColor,
-  } = getOperatorsOf(rootElement);
-
-  ratioFlow.subscribe(ratio => {
-    setBackgroundColor(ratio);
-    setColor(ratio);
-  });
-};
 
 export class Footer extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -65,6 +46,12 @@ export class Footer extends React.Component<Props, State> {
     }
 
     return null;
+  }
+
+  componentWillUnmount() {
+    const { ratioSubscription } = this.state;
+
+    (ratioSubscription as Subscription).unsubscribe();
   }
 
   render() {

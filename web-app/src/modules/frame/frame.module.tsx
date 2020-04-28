@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { fromEvent } from 'rxjs';
+import { fromEvent, Subscription } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 import { getOperatorsOf } from './frame.helper';
@@ -15,13 +15,13 @@ export class Frame extends React.Component<Props, State> {
     super(props);
 
     this.state = {
-      root: React.createRef(),
+      rootRef: React.createRef(),
     };
   }
 
   componentDidMount() {
     const {
-      root: {
+      rootRef: {
         current: rootElement,
       },
     } = this.state;
@@ -54,19 +54,19 @@ export class Frame extends React.Component<Props, State> {
   componentWillUnmount() {
     const { resizeSubscription } = this.state;
 
-    resizeSubscription && resizeSubscription.unsubscribe();
+    (resizeSubscription as Subscription).unsubscribe();
   }
 
   render() {
     const { children } = this.props;
-    const { root } = this.state;
+    const { rootRef } = this.state;
 
     const spacerProps: SpacerProps = {
       spacer: styles.spacer,
     };
 
     return (
-      <div ref={root} className={styles.root}>
+      <div ref={rootRef} className={styles.root}>
         {children(spacerProps)}
       </div>
     );

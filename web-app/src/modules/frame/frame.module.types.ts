@@ -6,7 +6,7 @@ export interface Props {
 
 export interface State {
   resizeSubscription?: Subscription;
-  root: React.RefObject<HTMLDivElement>;
+  rootRef: React.RefObject<HTMLDivElement>;
 }
 
 export interface SpacerProps {
