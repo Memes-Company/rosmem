@@ -19,13 +19,21 @@
   "eslintConfig": {
     "extends": "react-app",
     "plugins": [
-      "import"
+      "import",
+      "react"
     ],
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
     "rules": {
       "indent": [
         "error",
         2
       ],
+      "react/jsx-indent": [1, 2],
+      "react/jsx-indent-props": [1, 2],
       "lines-between-class-members": [
         "error",
         "always"
@@ -138,6 +146,7 @@
     "@babel/plugin-proposal-export-default-from": "^7.8.3",
     "customize-cra": "^0.9.1",
     "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-react": "^7.19.0",
     "gh-pages": "^2.1.1",
     "react-app-rewired": "^2.1.5",
     "serve": "^11.2.0"
