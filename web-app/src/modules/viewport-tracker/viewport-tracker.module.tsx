@@ -19,14 +19,14 @@ export class ViewportTracker extends React.Component<Props, State> {
     super(props);
 
     this.state = {
-      forwardedRef: React.createRef(),
+      targetRef: React.createRef(),
       ratioFlow: null,
     };
   }
 
   componentDidMount() {
     const {
-      forwardedRef: {
+      targetRef: {
         current: targetElement,
       },
     } = this.state;
@@ -70,15 +70,15 @@ export class ViewportTracker extends React.Component<Props, State> {
     } = this.props;
 
     const {
-      forwardedRef,
+      targetRef,
       ratioFlow,
     } = this.state;
 
-    const childrenProps: TargetProps = {
-      forwardedRef,
+    const targetProps: TargetProps = {
+      targetRef,
       ratioFlow,
     };
 
-    return children(childrenProps);
+    return children(targetProps);
   }
 }

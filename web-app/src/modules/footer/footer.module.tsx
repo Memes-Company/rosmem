@@ -69,7 +69,7 @@ export class Footer extends React.Component<Props, State> {
 
   render() {
     const {
-      forwardedRef,
+      targetRef,
       spacer,
     } = this.props;
 
@@ -82,7 +82,7 @@ export class Footer extends React.Component<Props, State> {
         <div className={classnames(styles.title, spacer)}>
           <FooterTitle />
         </div>
-        <div ref={forwardedRef} className={styles.content}>
+        <div ref={targetRef} className={styles.content}>
           <FooterContent />
         </div>
         <div className={styles.creators}>
