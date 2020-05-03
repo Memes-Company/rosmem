@@ -24,6 +24,17 @@
     "rules": {
       "indent": [
         "error",
+        2,
+        {
+          "SwitchCase": 1
+        }
+      ],
+      "react/jsx-indent": [
+        1,
+        2
+      ],
+      "react/jsx-indent-props": [
+        1,
         2
       ],
       "lines-between-class-members": [
@@ -102,7 +113,8 @@
         "always-multiline"
       ],
       "no-empty": "warn",
-      "no-trailing-spaces": "warn"
+      "no-trailing-spaces": "warn",
+      "eol-last": ["error", "always"]
     }
   },
   "browserslist": {
