@@ -1,0 +1,33 @@
+.root {
+  --high-boundary-color: 66, 66, 66;
+  --low-boundary-color: 255, 255, 255;
+  --footer-background-color: 255, 255, 255;
+  --footer-color: black;
+
+  padding: 0 20px;
+  color: var(--footer-color);
+  background-color: rgba(var(--footer-background-color), 1);
+  transition: background-color .075s;
+}
+
+.title {
+  display: block;
+  padding: 35px 0;
+  fill: var(--footer-color);
+  transition: min-height .15s ease-out;
+}
+
+.content {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 350px;
+  background-image: url(../../modules/shared/assets/svg/stripes.svg);
+  transform: translateY(calc((100vh - var(--viewportVH, 1vh) * 100) / (-2)));
+  transition: transform .15s ease-out;
+}
+
+.creators {
+  text-align: center;
+  padding: 30px 0;
+}
