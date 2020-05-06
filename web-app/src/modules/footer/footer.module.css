@@ -1,7 +1,7 @@
 .root {
-  --high-boundary-color: 66, 66, 66;
-  --low-boundary-color: 255, 255, 255;
-  --footer-background-color: 255, 255, 255;
+  --high-boundary-color: 66 66 66;
+  --low-boundary-color: 255 255 255;
+  --footer-background-color: 255 255 255;
   --footer-color: black;
 
   padding: 0 20px;
