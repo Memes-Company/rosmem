@@ -30,31 +30,34 @@ export class FocusTracker extends React.Component<Props, State> {
   }
 
   onTargetBlur = (event: FocusEvent) => {
+    const { relatedTarget } = event;
     const {
       forwardedRef: {
         current: rootElement,
       },
     } = this.state;
-
-    const document = (event.target as Element).ownerDocument as Document;
-
+    
     if (!rootElement) {
       throw new Error('rootElement refers to null or undefined.');
     }
 
+    if (relatedTarget === null) {
+      this.setState({
+        isFocus: false,
+      });
+
+      return;
+    }
+
     const { rootIsParentOf } = getOperatorsOf(rootElement);
 
-    document.addEventListener('focus', (event) => {
-      const { target: targetElement } = event;
+    const isTargetElementChild = rootIsParentOf(relatedTarget as HTMLDivElement);
 
-      const isTargetElementChild = rootIsParentOf(targetElement as HTMLDivElement);
-
-      if (!isTargetElementChild) {
-        this.setState({
-          isFocus: false,
-        });
-      }
-    }, { capture: true, once: true });
+    if (!isTargetElementChild) {
+      this.setState({
+        isFocus: false,
+      });
+    }
   }
 
   componentDidMount() {
@@ -68,10 +71,13 @@ export class FocusTracker extends React.Component<Props, State> {
       throw new TypeError('targetElement is null or undefined.');
     }
 
-    targetElement.addEventListener('focus', this.onTargetFocus, { capture: true });
-    targetElement.addEventListener('blur', this.onTargetBlur, { capture: true });
+    const listenerOptions: AddEventListenerOptions = {
+      capture: true,
+      passive: true,
+    }
 
-    console.log('targetElement:', targetElement);
+    targetElement.addEventListener('focus', this.onTargetFocus, listenerOptions);
+    targetElement.addEventListener('blur', this.onTargetBlur, listenerOptions);
   }
 
   render() {
