@@ -1,0 +1,48 @@
+.root {
+  position: relative;
+  display: inline-grid;
+  vertical-align: top;
+  box-sizing: border-box;
+  --min-width: 10px;
+  --width: 0px;
+}
+
+.input,
+.value {
+  grid-area: 1 / 2;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 100%;
+  background-color: #e9e9e9;
+  outline: none;
+  overflow: hidden;
+}
+
+.value {
+  max-width: 100%;
+  min-width: 10px;
+  position: relative;
+  place-self: baseline;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.value::after {
+  display: block;
+  white-space: pre;
+  min-width: 10px;
+  width: 100%;
+  content: attr(data-value);
+}
