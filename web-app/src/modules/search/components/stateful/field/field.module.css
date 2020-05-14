@@ -1,0 +1,14 @@
+.root {
+  text-align: left;
+  padding: 5px;
+  margin: unset;
+  line-height: 20px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  cursor: text;
+  box-shadow: 2px 2px 0px #000;
+}
+
+.focus {
+  background-color: orange;
+}

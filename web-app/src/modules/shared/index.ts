@@ -1,3 +1,1 @@
-import * as SharedHelper from './shared.module.helper';
-
-export { SharedHelper };
+export { isArray } from './shared.module.helper';

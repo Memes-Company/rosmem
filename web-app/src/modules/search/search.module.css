@@ -1,0 +1,21 @@
+.root {
+
+}
+
+.dropdown {
+  opacity: 0;
+  transition-duration: .1s;
+  transition-property: opacity, transform;
+  transform: translateY(-10px);
+}
+
+.dropdown.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown::before {
+  display: block;
+  content: "";
+  margin: 10px 0;
+}
