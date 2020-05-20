@@ -17,111 +17,23 @@
     "serve-build": "yarn serve build/ --no-clipboard --no-compression --symlinks"
   },
   "eslintConfig": {
-    "extends": "react-app",
-    "plugins": [
-      "import",
-      "react"
+    "extends": [
+      "react-app",
+      "shared-config"
     ],
-    "parserOptions": {
-      "ecmaFeatures": {
-        "jsx": true
-      }
-    },
     "rules": {
-      "indent": [
-        "error",
-        2,
-        {
-          "SwitchCase": 1
+      "additional-rule": "warn"
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/*.ts?(x)"
+        ],
+        "rules": {
+          "additional-typescript-only-rule": "warn"
         }
-      ],
-      "react/jsx-indent": [
-        1,
-        2
-      ],
-      "react/jsx-indent-props": [
-        1,
-        2
-      ],
-      "lines-between-class-members": [
-        "error",
-        "always"
-      ],
-      "linebreak-style": [
-        "error",
-        "unix"
-      ],
-      "import/first": "error",
-      "import/order": [
-        "error",
-        {
-          "groups": [
-            [
-              "builtin",
-              "external"
-            ],
-            "internal",
-            [
-              "parent",
-              "sibling"
-            ],
-            "index"
-          ],
-          "newlines-between": "always",
-          "pathGroups": [
-            {
-              "pattern": "src/**/*",
-              "group": "internal",
-              "position": "after"
-            }
-          ],
-          "pathGroupsExcludedImportTypes": [
-            "internal"
-          ]
-        }
-      ],
-      "import/newline-after-import": "error",
-      "semi": [
-        "warn",
-        "always"
-      ],
-      "quotes": [
-        "warn",
-        "single"
-      ],
-      "object-curly-spacing": [
-        "warn",
-        "always"
-      ],
-      "object-curly-newline": [
-        "warn",
-        {
-          "ObjectExpression": {
-            "multiline": true,
-            "minProperties": 3,
-            "consistent": true
-          },
-          "ObjectPattern": {
-            "multiline": true,
-            "minProperties": 3,
-            "consistent": true
-          },
-          "ImportDeclaration": {
-            "multiline": true,
-            "minProperties": 3,
-            "consistent": true
-          },
-          "ExportDeclaration": "never"
-        }
-      ],
-      "comma-dangle": [
-        "warn",
-        "always-multiline"
-      ],
-      "no-empty": "warn",
-      "no-trailing-spaces": "warn",
-      "eol-last": ["error", "always"]
-    }
+      }
+    ]
   },
   "browserslist": {
     "production": [
@@ -154,6 +66,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-export-default-from": "^7.8.3",
+    "@typescript-eslint/parser": "^2.34.0",
     "customize-cra": "^0.9.1",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-react": "^7.19.0",
