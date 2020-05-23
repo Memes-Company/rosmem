@@ -32,8 +32,6 @@ export class Field extends React.PureComponent<Props, State> {
       throw new Error('tagInputRootElement is null or undefined.');
     }
 
-    const document = tagInputlement.ownerDocument as Document;
-    
     tagInputlement.focus();
   }
 

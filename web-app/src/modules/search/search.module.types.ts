@@ -1,9 +1,11 @@
-import { TargetProps } from 'src/modules/focus-tracker';
+import { Subscription } from 'rxjs';
 
-export interface Props extends TargetProps {
+export interface Props {
 
 }
 
 export interface State {
-
+  isActive: boolean;
+  refRoot: React.RefObject<HTMLDivElement>;
+  clickSubscription: Subscription | null;
 }

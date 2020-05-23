@@ -74,7 +74,7 @@ export class FocusTracker extends React.Component<Props, State> {
     const listenerOptions: AddEventListenerOptions = {
       capture: true,
       passive: true,
-    }
+    };
 
     targetElement.addEventListener('focus', this.onTargetFocus, listenerOptions);
     targetElement.addEventListener('blur', this.onTargetBlur, listenerOptions);

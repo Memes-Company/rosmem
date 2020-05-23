@@ -1,11 +1,9 @@
 import * as React from 'react';
 
-import { SharedHelper } from 'src/modules/shared';
+import { isArray } from 'src/modules/shared';
 
 import { Props } from './frame-skelethon.pure.types';
 import frameStyles from '../../frame.module.css';
-
-const { isArray } = SharedHelper;
 
 export class FrameSkelethon extends React.Component<Props> {
   render() {
