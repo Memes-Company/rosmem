@@ -1,6 +1,6 @@
 {
   "eslint.enable": true,
-  "eslint.workingDirectories": [
-    "./web-app"
-  ]
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
 }
